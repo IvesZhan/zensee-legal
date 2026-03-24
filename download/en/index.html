@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Download ZenSee</title>
   <meta name="description" content="ZenSee is a calm meditation app for daily practice, reflection, and long-term progress. Tap to download." />
-  <meta name="theme-color" content="#f4efe7" />
+  <meta name="theme-color" content="#f6f1e9" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Download ZenSee" />
   <meta property="og:description" content="See the world. See others. See yourself. Begin your quiet daily practice with ZenSee." />
@@ -16,17 +16,12 @@
     :root {
       color-scheme: light;
       --bg: #f6f1e9;
-      --surface: rgba(255, 251, 245, 0.84);
-      --surface-strong: rgba(255, 252, 247, 0.96);
       --text: #514335;
       --muted: #8f7d6d;
-      --line: rgba(160, 141, 120, 0.15);
+      --line: rgba(160, 141, 120, 0.14);
       --accent: #9d8972;
       --accent-strong: #7e6b58;
-      --shadow: 0 22px 48px rgba(118, 99, 78, 0.12);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
+      --shadow: 0 20px 42px rgba(118, 99, 78, 0.12);
       --container: min(100% - 24px, 460px);
     }
 
@@ -34,8 +29,9 @@
 
     html {
       min-height: 100%;
+      background-color: var(--bg);
       background:
-        radial-gradient(circle at 50% 0%, rgba(232, 222, 209, 0.76), transparent 42%),
+        radial-gradient(circle at 50% 0%, rgba(232, 222, 209, 0.78), transparent 42%),
         linear-gradient(180deg, #fbf7f1 0%, #f6f1e9 48%, #f2ece4 100%);
     }
 
@@ -46,6 +42,7 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      background-color: var(--bg);
     }
 
     body::before,
@@ -61,16 +58,16 @@
     }
 
     body::before {
-      top: 44px;
+      top: calc(env(safe-area-inset-top) + 26px);
       width: min(88vw, 560px);
       height: min(88vw, 560px);
     }
 
     body::after {
-      top: -24px;
+      top: -18px;
       width: min(118vw, 780px);
       height: min(118vw, 780px);
-      opacity: 0.7;
+      opacity: 0.72;
     }
 
     a {
@@ -86,7 +83,7 @@
     .page {
       width: var(--container);
       margin: 0 auto;
-      padding: 18px 0 40px;
+      padding: calc(env(safe-area-inset-top) + 18px) 0 calc(env(safe-area-inset-bottom) + 118px);
     }
 
     .topbar {
@@ -94,7 +91,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
 
     .brand {
@@ -122,10 +119,6 @@
       border: 2px solid rgba(255, 248, 240, 0.92);
     }
 
-    .brand-copy {
-      min-width: 0;
-    }
-
     .brand-copy strong {
       display: block;
       font-size: 15px;
@@ -137,9 +130,6 @@
       display: block;
       color: var(--muted);
       font-size: 12px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .lang-switch {
@@ -163,50 +153,24 @@
       color: var(--muted);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .lang-switch a.active {
-      background: var(--surface-strong);
+      background: rgba(255, 252, 247, 0.98);
       color: var(--accent-strong);
       box-shadow: 0 8px 16px rgba(126, 107, 87, 0.08);
     }
 
     .hero {
-      padding-top: 6px;
       text-align: center;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255, 252, 247, 0.62);
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(157, 137, 114, 0.1);
-    }
-
     h1 {
-      margin: 18px 0 10px;
+      margin: 10px 0 10px;
       font-family: "Iowan Old Style", Georgia, serif;
-      font-size: clamp(31px, 9vw, 48px);
-      line-height: 1.12;
+      font-size: clamp(28px, 7.4vw, 42px);
+      line-height: 1.14;
       letter-spacing: -0.03em;
     }
 
@@ -214,28 +178,28 @@
       margin: 0 auto;
       max-width: 22rem;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .screens {
       position: relative;
-      width: min(100%, 330px);
-      height: 296px;
-      margin: 26px auto 0;
+      width: min(100%, 314px);
+      height: 274px;
+      margin: 18px auto 0;
     }
 
     .aura {
       position: absolute;
-      inset: 52px 18px 0;
+      inset: 54px 18px 0;
       background: radial-gradient(circle, rgba(157, 137, 114, 0.22), rgba(157, 137, 114, 0) 74%);
       filter: blur(8px);
     }
 
     .shot {
       position: absolute;
-      width: 46%;
-      min-width: 142px;
-      border-radius: 28px;
+      width: 45%;
+      min-width: 138px;
+      border-radius: 26px;
       overflow: hidden;
       background: #f8f3ed;
       border: 1px solid rgba(157, 137, 114, 0.16);
@@ -245,25 +209,20 @@
     .shot.one {
       left: 10px;
       top: 0;
-      transform: rotate(-7deg);
+      transform: rotate(-6deg);
     }
 
     .shot.two {
       right: 10px;
-      top: 68px;
-      transform: rotate(7deg);
-    }
-
-    .shot img {
-      width: 100%;
-      height: auto;
+      top: 62px;
+      transform: rotate(6deg);
     }
 
     .quote {
-      margin: 18px auto 0;
-      max-width: 17rem;
+      margin: 14px auto 0;
+      max-width: 16rem;
       color: var(--accent-strong);
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 0.04em;
     }
 
@@ -271,11 +230,11 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
     .highlight {
-      padding: 14px 10px;
+      padding: 12px 8px;
       border-radius: 20px;
       background: rgba(255, 252, 247, 0.66);
       border: 1px solid var(--line);
@@ -285,7 +244,7 @@
 
     .highlight strong {
       display: block;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--accent-strong);
     }
@@ -297,57 +256,12 @@
       font-size: 12px;
     }
 
-    .cta {
-      margin-top: 26px;
-      padding: 18px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, rgba(255, 252, 247, 0.9), rgba(250, 244, 236, 0.95));
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .cta-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .cta-text {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .platform-hint {
-      margin-top: 10px;
-      color: var(--accent-strong);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .download-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 54px;
-      margin-top: 16px;
-      padding: 14px 18px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #9d8972 0%, #7e6b58 100%);
-      color: #fbf7f1;
-      font-size: 16px;
-      font-weight: 700;
-      box-shadow: 0 16px 28px rgba(126, 107, 87, 0.22);
-    }
-
     .links {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px 16px;
-      margin-top: 18px;
+      margin-top: 24px;
       color: var(--muted);
       font-size: 13px;
     }
@@ -358,13 +272,43 @@
       text-underline-offset: 3px;
     }
 
+    .floating-download {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: calc(env(safe-area-inset-bottom) + 12px);
+      z-index: 20;
+      padding: 10px;
+      border-radius: 999px;
+      background: rgba(255, 252, 247, 0.82);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 16px 34px rgba(118, 99, 78, 0.12);
+    }
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 56px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #9d8972 0%, #7e6b58 100%);
+      color: #fbf7f1;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 16px 28px rgba(126, 107, 87, 0.22);
+    }
+
     @media (min-width: 700px) {
       :root {
         --container: min(100% - 32px, 900px);
       }
 
       .page {
-        padding-top: 28px;
+        padding-top: calc(env(safe-area-inset-top) + 28px);
       }
 
       .hero {
@@ -382,17 +326,15 @@
 
       .screens {
         width: 360px;
+        height: 314px;
         margin-top: 0;
       }
 
-      .highlights {
-        margin-top: 28px;
-      }
-
-      .cta {
-        max-width: 520px;
-        margin-left: auto;
-        margin-right: auto;
+      .floating-download {
+        left: 50%;
+        right: auto;
+        width: min(100% - 32px, 520px);
+        transform: translateX(-50%);
       }
     }
 
@@ -416,7 +358,7 @@
         </div>
       </div>
       <nav class="lang-switch" aria-label="Language switch">
-        <a href="../../download/">中文</a>
+        <a href="../../download/?lang=zh">中文</a>
         <a class="active" href="../../download/en/">EN</a>
         <a href="../../download/ja/">JP</a>
       </nav>
@@ -424,7 +366,6 @@
 
     <section class="hero">
       <div>
-        <div class="eyebrow">Meditation app</div>
         <h1>See the world. See others. See yourself.</h1>
         <p class="summary">
           Turn a few quiet minutes each day into a steady rhythm you can keep, track,
@@ -459,24 +400,16 @@
       </div>
     </section>
 
-    <section class="cta">
-      <p class="cta-title">Get ZenSee</p>
-      <p class="cta-text">This page will route you to the right download destination for your device.</p>
-      <p
-        class="platform-hint"
-        data-platform-hint
-        data-ios-text="Current device: iPhone / iPad. You will open the App Store."
-        data-android-text="Current device: Android. You will open the Android download page."
-        data-fallback-text="A mobile device was not detected. The default download destination will open."
-      ></p>
-      <a class="download-button" data-download-button href="https://iveszhan.github.io/zensee-legal/support/en/">Download</a>
-      <div class="links">
-        <a href="../../support/en/">Support</a>
-        <a href="../../privacy-policy/en/">Privacy Policy</a>
-        <a href="../../terms-of-service/en/">Terms of Service</a>
-      </div>
-    </section>
+    <div class="links">
+      <a href="../../support/en/">Support</a>
+      <a href="../../privacy-policy/en/">Privacy Policy</a>
+      <a href="../../terms-of-service/en/">Terms of Service</a>
+    </div>
   </main>
+
+  <div class="floating-download">
+    <a class="download-button" data-download-button href="https://iveszhan.github.io/zensee-legal/support/en/">Download</a>
+  </div>
 
   <script src="../config.js"></script>
   <script src="../app.js"></script>

@@ -16,6 +16,8 @@ Then upload the contents of this folder to the root of that repository.
 - `terms-of-service/index.html`
 - `support/index.html`
 - `download/index.html`
+- `download/en/index.html`
+- `download/ja/index.html`
 - `.nojekyll`
 
 ## Enable GitHub Pages
@@ -38,6 +40,8 @@ If the repository is a project site repo such as `zensee-legal`:
 - `https://<github-username>.github.io/zensee-legal/terms-of-service/`
 - `https://<github-username>.github.io/zensee-legal/support/`
 - `https://<github-username>.github.io/zensee-legal/download/`
+- `https://<github-username>.github.io/zensee-legal/download/en/`
+- `https://<github-username>.github.io/zensee-legal/download/ja/`
 
 If the repository is a user site repo such as `<github-username>.github.io`:
 
@@ -45,6 +49,8 @@ If the repository is a user site repo such as `<github-username>.github.io`:
 - `https://<github-username>.github.io/terms-of-service/`
 - `https://<github-username>.github.io/support/`
 - `https://<github-username>.github.io/download/`
+- `https://<github-username>.github.io/download/en/`
+- `https://<github-username>.github.io/download/ja/`
 
 ## Notes
 

@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZenSee 下载</title>
+  <meta name="description" content="ZenSee 是一款安静、克制的禅修练习应用。点击下载，开始你的静心时刻。" />
+  <meta name="theme-color" content="#f4efe7" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ZenSee 下载" />
+  <meta property="og:description" content="见天地，见众生，见自己。打开 ZenSee，开始你的静心时刻。" />
+  <meta property="og:url" content="https://iveszhan.github.io/zensee-legal/download/" />
+  <meta property="og:image" content="https://iveszhan.github.io/zensee-legal/IMG_2399.PNG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4efe7;
+      --bg-strong: #e7ddd0;
+      --surface: rgba(255, 252, 247, 0.76);
+      --surface-strong: rgba(255, 252, 247, 0.94);
+      --text: #4d4034;
+      --text-soft: #8f7d6b;
+      --line: rgba(143, 125, 107, 0.18);
+      --accent: #aa9782;
+      --accent-strong: #8f7a66;
+      --shadow: 0 24px 60px rgba(110, 93, 76, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --container: min(100% - 28px, 980px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(231, 221, 208, 0.9), transparent 42%),
+        radial-gradient(circle at 90% 10%, rgba(223, 211, 196, 0.65), transparent 28%),
+        linear-gradient(180deg, #f8f4ee 0%, var(--bg) 100%);
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      pointer-events: none;
+      z-index: -2;
+      border-radius: 999px;
+      border: 1px solid rgba(170, 151, 130, 0.16);
+      opacity: 0.65;
+    }
+
+    body::before {
+      width: 68vw;
+      height: 68vw;
+      max-width: 720px;
+      max-height: 720px;
+      top: 8vh;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    body::after {
+      width: 92vw;
+      height: 92vw;
+      max-width: 980px;
+      max-height: 980px;
+      top: -6vh;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 22px 0 120px;
+    }
+
+    .hero {
+      position: relative;
+      padding: 18px 0 12px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 252, 247, 0.66);
+      border: 1px solid rgba(170, 151, 130, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: var(--text-soft);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #b6a28c 0%, #8f7a66 100%);
+      box-shadow: 0 0 0 6px rgba(170, 151, 130, 0.12);
+    }
+
+    h1 {
+      margin: 22px 0 12px;
+      font-family: "Iowan Old Style", "Songti SC", "STSong", serif;
+      font-size: clamp(40px, 9vw, 74px);
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .summary {
+      max-width: 32rem;
+      font-size: 16px;
+      color: var(--text-soft);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .hero-meta div {
+      padding: 14px 14px 16px;
+      background: rgba(255, 252, 247, 0.58);
+      border: 1px solid rgba(170, 151, 130, 0.12);
+      border-radius: 22px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .hero-meta span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .hero-meta strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .screens {
+      position: relative;
+      min-height: 470px;
+      margin-top: 26px;
+    }
+
+    .shot {
+      position: absolute;
+      width: min(62vw, 280px);
+      border-radius: 34px;
+      border: 1px solid rgba(170, 151, 130, 0.2);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      background: #f8f4ee;
+      transition: transform 700ms cubic-bezier(.19,1,.22,1), box-shadow 700ms cubic-bezier(.19,1,.22,1);
+    }
+
+    .shot img {
+      width: 100%;
+      height: auto;
+    }
+
+    .shot.one {
+      left: 4px;
+      top: 10px;
+      transform: rotate(-6deg);
+    }
+
+    .shot.two {
+      right: 2px;
+      top: 96px;
+      transform: rotate(7deg);
+    }
+
+    .glow {
+      position: absolute;
+      inset: auto auto 18% 50%;
+      width: 78%;
+      height: 200px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(170, 151, 130, 0.24) 0%, rgba(170, 151, 130, 0) 70%);
+      filter: blur(12px);
+      z-index: -1;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 24px 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: 22px;
+      font-family: "Iowan Old Style", "Songti SC", "STSong", serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section p {
+      margin: 12px 0 0;
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 16px;
+      background: rgba(255, 252, 247, 0.68);
+      border: 1px solid rgba(170, 151, 130, 0.12);
+      border-radius: var(--radius-lg);
+    }
+
+    .feature-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(170, 151, 130, 0.24), rgba(170, 151, 130, 0.1));
+      color: var(--accent-strong);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .feature span {
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(221, 209, 195, 0.92), transparent 42%),
+        linear-gradient(180deg, rgba(255, 252, 247, 0.9), rgba(250, 246, 240, 0.96));
+    }
+
+    .cta-panel::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 24px;
+      border: 1px solid rgba(170, 151, 130, 0.1);
+      pointer-events: none;
+    }
+
+    .platform-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 252, 247, 0.84);
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(170, 151, 130, 0.16);
+    }
+
+    .platform-pill::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(170, 151, 130, 0.1);
+    }
+
+    .cta-note {
+      margin-top: 12px;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 16px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease, border-color 220ms ease;
+    }
+
+    .button.primary {
+      color: #fbf7f0;
+      background: linear-gradient(180deg, #9a8671 0%, #7f6a56 100%);
+      box-shadow: 0 16px 30px rgba(126, 104, 84, 0.22);
+    }
+
+    .button.secondary {
+      color: var(--accent-strong);
+      background: rgba(255, 252, 247, 0.8);
+      border-color: rgba(170, 151, 130, 0.16);
+    }
+
+    .button:active {
+      transform: translateY(1px) scale(0.995);
+    }
+
+    .button.disabled {
+      opacity: 0.6;
+    }
+
+    .legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+      margin-top: 18px;
+      color: var(--text-soft);
+      font-size: 13px;
+    }
+
+    .legal a {
+      text-decoration: underline;
+      text-decoration-color: rgba(143, 125, 107, 0.32);
+      text-underline-offset: 3px;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 20;
+      padding: 10px;
+      border-radius: 999px;
+      background: rgba(255, 252, 247, 0.84);
+      border: 1px solid rgba(170, 151, 130, 0.14);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+      box-shadow: 0 18px 38px rgba(110, 93, 76, 0.14);
+    }
+
+    .sticky-cta .button {
+      width: 100%;
+      min-height: 54px;
+    }
+
+    .page-reveal {
+      animation: fade-up 900ms cubic-bezier(.19,1,.22,1) both;
+    }
+
+    .page-reveal.delay-1 { animation-delay: 100ms; }
+    .page-reveal.delay-2 { animation-delay: 180ms; }
+    .page-reveal.delay-3 { animation-delay: 260ms; }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 760px) {
+      .page {
+        padding-top: 46px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
+        gap: 22px;
+        align-items: center;
+      }
+
+      .screens {
+        min-height: 620px;
+        margin-top: 0;
+      }
+
+      .shot {
+        width: 280px;
+      }
+
+      .shot.one {
+        left: 0;
+        top: 36px;
+      }
+
+      .shot.two {
+        right: 6px;
+        top: 160px;
+      }
+
+      .sections {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .actions .button.primary {
+        grid-column: 1 / -1;
+      }
+
+      .sticky-cta {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero page-reveal">
+      <div class="hero-copy">
+        <div class="eyebrow">ZenSee Mindful Practice</div>
+        <h1>见天地，见众生，见自己。</h1>
+        <p class="summary">
+          把禅修计时、静心记录、阶段统计和共修连接放进一个安静的空间里。
+          下载 ZenSee，从今天开始给自己留出一点清醒的时间。
+        </p>
+        <div class="hero-meta">
+          <div>
+            <span>节奏</span>
+            <strong>2 分钟起步</strong>
+          </div>
+          <div>
+            <span>状态</span>
+            <strong>安静、克制</strong>
+          </div>
+          <div>
+            <span>目标</span>
+            <strong>长期坚持</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="screens page-reveal delay-1" aria-hidden="true">
+        <div class="glow"></div>
+        <figure class="shot one">
+          <img src="../IMG_2399.PNG" alt="ZenSee 首页截图，展示今日禅修时长与练习入口" />
+        </figure>
+        <figure class="shot two">
+          <img src="../IMG_2400.PNG" alt="ZenSee 统计页截图，展示累计禅修时长和月度分布" />
+        </figure>
+      </div>
+    </section>
+
+    <div class="sections">
+      <section class="section page-reveal delay-2">
+        <h2>为什么用它开始</h2>
+        <p>不是把你推向更忙，而是把注意力轻轻拉回来。ZenSee 适合想建立禅修习惯、记录状态变化，并持续回看自己的人。</p>
+        <div class="feature-list">
+          <div class="feature">
+            <div class="feature-index">01</div>
+            <div>
+              <strong>轻量开始</strong>
+              <span>从短时练习开始，不需要复杂设置，也不会被信息轰炸。</span>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-index">02</div>
+            <div>
+              <strong>看见积累</strong>
+              <span>把每天的练习沉淀成可回看的统计，让坚持变得更有感受。</span>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-index">03</div>
+            <div>
+              <strong>与同频的人一起</strong>
+              <span>群组共修与记录结合在一起，让练习既独处，也连接。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-panel page-reveal delay-3">
+        <h2>下载 ZenSee</h2>
+        <p>页面会自动识别你的系统，并在点击按钮时跳到对应下载地址。你也可以手动选择商店入口。</p>
+
+        <div class="platform-pill" id="platform-pill">正在识别当前设备</div>
+        <div class="cta-note" id="cta-note">如果没有自动跳转到正确平台，可以使用下面的手动入口。</div>
+
+        <div class="actions">
+          <a class="button primary" id="smart-download" href="https://iveszhan.github.io/zensee-legal/support/">下载 App</a>
+          <a class="button secondary" id="ios-download" href="https://iveszhan.github.io/zensee-legal/support/">App Store 下载</a>
+          <a class="button secondary" id="android-download" href="https://iveszhan.github.io/zensee-legal/support/">Google Play 下载</a>
+        </div>
+
+        <div class="legal">
+          <a href="../support/">支持</a>
+          <a href="../privacy-policy/">隐私政策</a>
+          <a href="../terms-of-service/">服务条款</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="sticky-cta">
+    <a class="button primary" id="sticky-download" href="https://iveszhan.github.io/zensee-legal/support/">下载 ZenSee</a>
+  </div>
+
+  <script src="./config.js"></script>
+  <script>
+    (function () {
+      var links = window.ZENSEE_DOWNLOAD_LINKS || {};
+      var placeholderPattern = /YOUR_APP_ID|YOUR_PACKAGE_NAME/;
+
+      function isConfigured(url) {
+        return typeof url === "string" && /^https?:\/\//.test(url) && !placeholderPattern.test(url);
+      }
+
+      function detectPlatform() {
+        var ua = navigator.userAgent || "";
+        var isAndroid = /Android/i.test(ua);
+        var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+          (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+        if (isIOS) {
+          return { key: "ios", label: "已识别：iPhone / iPad" };
+        }
+        if (isAndroid) {
+          return { key: "android", label: "已识别：Android" };
+        }
+        return { key: "fallback", label: "已识别：浏览器 / 桌面端" };
+      }
+
+      var platform = detectPlatform();
+      var fallback = isConfigured(links.fallback) ? links.fallback : "https://iveszhan.github.io/zensee-legal/support/";
+      var iosLink = isConfigured(links.ios) ? links.ios : fallback;
+      var androidLink = isConfigured(links.android) ? links.android : fallback;
+      var selectedLink = platform.key === "ios" ? iosLink : (platform.key === "android" ? androidLink : fallback);
+
+      var smartDownload = document.getElementById("smart-download");
+      var stickyDownload = document.getElementById("sticky-download");
+      var iosDownload = document.getElementById("ios-download");
+      var androidDownload = document.getElementById("android-download");
+      var pill = document.getElementById("platform-pill");
+      var note = document.getElementById("cta-note");
+
+      pill.textContent = platform.label;
+      smartDownload.href = selectedLink;
+      stickyDownload.href = selectedLink;
+      iosDownload.href = iosLink;
+      androidDownload.href = androidLink;
+
+      if (platform.key === "ios") {
+        smartDownload.textContent = "前往 App Store";
+        stickyDownload.textContent = "前往 App Store";
+      } else if (platform.key === "android") {
+        smartDownload.textContent = "前往 Google Play";
+        stickyDownload.textContent = "前往 Google Play";
+      } else {
+        smartDownload.textContent = "查看下载入口";
+        stickyDownload.textContent = "查看下载入口";
+      }
+
+      if (!isConfigured(links.ios) || !isConfigured(links.android)) {
+        note.textContent = "下载地址还没有完全配置时，按钮会先跳转到支持页。你可以稍后在 download/config.js 里替换真实链接。";
+      }
+    }());
+  </script>
+</body>
+</html>

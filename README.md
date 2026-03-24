@@ -15,6 +15,7 @@ Then upload the contents of this folder to the root of that repository.
 - `privacy-policy/index.html`
 - `terms-of-service/index.html`
 - `support/index.html`
+- `download/index.html`
 - `.nojekyll`
 
 ## Enable GitHub Pages
@@ -36,12 +37,14 @@ If the repository is a project site repo such as `zensee-legal`:
 - `https://<github-username>.github.io/zensee-legal/privacy-policy/`
 - `https://<github-username>.github.io/zensee-legal/terms-of-service/`
 - `https://<github-username>.github.io/zensee-legal/support/`
+- `https://<github-username>.github.io/zensee-legal/download/`
 
 If the repository is a user site repo such as `<github-username>.github.io`:
 
 - `https://<github-username>.github.io/privacy-policy/`
 - `https://<github-username>.github.io/terms-of-service/`
 - `https://<github-username>.github.io/support/`
+- `https://<github-username>.github.io/download/`
 
 ## Notes
 

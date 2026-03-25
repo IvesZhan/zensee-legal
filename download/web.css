@@ -534,8 +534,8 @@ img {
 
 .phone-mockup {
   width: min(332px, 100%);
-  padding: 10px;
-  border-radius: 38px;
+  padding: 4px;
+  border-radius: 34px;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.68);
   box-shadow: 0 28px 56px rgba(57, 45, 32, 0.16);

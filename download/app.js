@@ -27,11 +27,32 @@
   var fallback = isConfigured(links.fallback) ? links.fallback :
     (isConfigured(pageFallback) ? pageFallback : "https://iveszhan.github.io/zensee-legal/support/");
   var iosLink = isConfigured(links.ios) ? links.ios : fallback;
-  var androidLink = isConfigured(links.android) ? links.android : fallback;
+  var androidReady = isConfigured(links.android);
+  var androidLink = androidReady ? links.android : fallback;
   var platform = detectPlatform();
   var resolved = platform === "ios" ? iosLink : (platform === "android" ? androidLink : fallback);
 
   for (var i = 0; i < buttons.length; i += 1) {
-    buttons[i].href = resolved;
+    var button = buttons[i];
+    var target = button.getAttribute("data-platform");
+
+    if (target === "ios") {
+      button.href = iosLink;
+      continue;
+    }
+
+    if (target === "android") {
+      button.href = androidLink;
+      if (!androidReady) {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          var message = this.getAttribute("data-coming-soon") || "Coming soon";
+          window.alert(message);
+        });
+      }
+      continue;
+    }
+
+    button.href = resolved;
   }
 }());

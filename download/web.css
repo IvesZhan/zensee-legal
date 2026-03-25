@@ -924,10 +924,7 @@ img {
   }
 
   .hero-actions {
-    display: block;
-    width: 100%;
-    align-self: stretch;
-    margin-top: 22px;
+    display: none;
   }
 
   .desktop-downloads {
@@ -1166,8 +1163,7 @@ img {
   }
 
   .cta-actions {
-    justify-content: flex-start;
-    margin-top: 20px;
+    display: none;
   }
 
   .cta-primary {

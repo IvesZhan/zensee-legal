@@ -591,6 +591,45 @@ img {
   font-size: 13px;
 }
 
+@media (min-width: 721px) {
+  .hero-copy {
+    max-width: 540px;
+  }
+
+  .hero-line {
+    margin-bottom: 24px;
+    line-height: 0.88;
+  }
+
+  .hero-line > span {
+    display: block;
+    white-space: nowrap;
+    line-height: 0.88;
+  }
+
+  .hero-line .small {
+    font-size: clamp(48px, 4.5vw, 70px);
+    color: rgba(57, 45, 32, 0.48);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .hero-line .medium {
+    margin-left: clamp(10px, 1vw, 18px);
+    font-size: clamp(48px, 4.5vw, 70px);
+    color: rgba(57, 45, 32, 0.6);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .hero-line .large {
+    margin-top: 8px;
+    font-size: clamp(66px, 5.8vw, 92px);
+    color: var(--primary);
+    font-weight: 700;
+  }
+}
+
 @media (min-width: 960px) {
   .nav-links {
     display: flex;

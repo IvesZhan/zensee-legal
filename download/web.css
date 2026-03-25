@@ -648,94 +648,64 @@ img {
   }
 
   html[lang="zh-CN"] .hero-copy,
-  html[lang="zh-Hant"] .hero-copy {
-    max-width: 540px;
+  html[lang="zh-Hant"] .hero-copy,
+  html[lang="ja"] .hero-copy {
+    width: fit-content;
+    max-width: min(100%, 560px);
   }
 
   html[lang="zh-CN"] .hero-line,
-  html[lang="zh-Hant"] .hero-line {
-    display: block;
-    max-width: 8ch;
-    margin-bottom: 20px;
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-  }
-
-  html[lang="zh-CN"] .hero-line > span,
-  html[lang="zh-Hant"] .hero-line > span {
-    display: inline;
-    white-space: normal;
-    line-height: inherit;
-  }
-
-  html[lang="zh-CN"] .hero-line .small,
-  html[lang="zh-Hant"] .hero-line .small {
-    font-size: clamp(56px, 5vw, 76px);
-    color: rgba(57, 45, 32, 0.54);
-    font-weight: 600;
-  }
-
-  html[lang="zh-CN"] .hero-line .medium,
-  html[lang="zh-Hant"] .hero-line .medium {
-    font-size: clamp(56px, 5vw, 76px);
-    color: rgba(57, 45, 32, 0.54);
-    font-weight: 600;
-  }
-
-  html[lang="zh-CN"] .hero-line .large,
-  html[lang="zh-Hant"] .hero-line .large {
-    margin-top: 0;
-    font-size: clamp(56px, 5vw, 76px);
-    color: rgba(57, 45, 32, 0.54);
-    font-weight: 600;
-  }
-
-  html[lang="zh-CN"] .hero-copy p,
-  html[lang="zh-Hant"] .hero-copy p {
-    max-width: 18ch;
-    line-height: 1.6;
-  }
-
-  html[lang="ja"] .hero-copy {
-    max-width: 560px;
-  }
-
+  html[lang="zh-Hant"] .hero-line,
   html[lang="ja"] .hero-line {
     display: block;
-    max-width: 12ch;
+    max-width: none;
     margin-bottom: 20px;
     line-height: 1.04;
     letter-spacing: -0.03em;
   }
 
+  html[lang="zh-CN"] .hero-line > span,
+  html[lang="zh-Hant"] .hero-line > span,
   html[lang="ja"] .hero-line > span {
     display: inline;
     white-space: normal;
     line-height: inherit;
   }
 
+  html[lang="zh-CN"] .hero-line .small,
+  html[lang="zh-Hant"] .hero-line .small,
   html[lang="ja"] .hero-line .small {
-    font-size: clamp(46px, 4.1vw, 62px);
-    color: rgba(57, 45, 32, 0.54);
+    font-size: clamp(34px, 3vw, 46px);
+    color: rgba(57, 45, 32, 0.58);
     font-weight: 600;
+    font-style: normal;
   }
 
+  html[lang="zh-CN"] .hero-line .medium,
+  html[lang="zh-Hant"] .hero-line .medium,
   html[lang="ja"] .hero-line .medium {
-    font-size: clamp(46px, 4.1vw, 62px);
-    color: rgba(57, 45, 32, 0.54);
+    font-size: clamp(34px, 3vw, 46px);
+    color: rgba(57, 45, 32, 0.58);
     font-weight: 600;
+    font-style: normal;
   }
 
+  html[lang="zh-CN"] .hero-line .large,
+  html[lang="zh-Hant"] .hero-line .large,
   html[lang="ja"] .hero-line .large {
     margin-top: 0;
-    font-size: clamp(46px, 4.1vw, 62px);
-    color: rgba(57, 45, 32, 0.54);
+    font-size: clamp(34px, 3vw, 46px);
+    color: rgba(57, 45, 32, 0.58);
     font-weight: 600;
+    font-style: normal;
   }
 
+  html[lang="zh-CN"] .hero-copy p,
+  html[lang="zh-Hant"] .hero-copy p,
   html[lang="ja"] .hero-copy p {
-    max-width: 24ch;
-    line-height: 1.68;
+    width: 100%;
+    max-width: none;
+    line-height: 1.6;
   }
 }
 

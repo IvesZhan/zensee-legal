@@ -730,14 +730,109 @@ img {
 }
 
 @media (min-width: 960px) {
+  .page-shell {
+    width: min(100% - 28px, 1380px);
+    margin: 18px auto 0;
+    border: 1px solid rgba(57, 45, 32, 0.08);
+    border-radius: 22px 22px 0 0;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(57, 45, 32, 0.06);
+    background:
+      radial-gradient(circle at 72% 24%, rgba(247, 223, 196, 0.26), transparent 26%),
+      linear-gradient(180deg, #fef9f1 0%, #fef9f1 48%, #faf5ee 100%);
+  }
+
+  .nav-inner,
+  .section,
+  .footer-inner {
+    width: auto;
+    margin: 0;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
   .nav-links {
     display: flex;
+    gap: 44px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav-links a {
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  .nav-links a:first-child {
+    color: var(--primary);
+  }
+
+  .nav-links a:first-child::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--primary);
+  }
+
+  .nav-inner {
+    padding-top: 22px;
+    padding-bottom: 22px;
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(460px, 1fr);
-    gap: clamp(48px, 6vw, 96px);
-    align-items: center;
+    grid-template-columns: minmax(440px, 0.92fr) minmax(520px, 1.08fr);
+    gap: clamp(48px, 5vw, 82px);
+    align-items: start;
+    padding-top: 34px;
+  }
+
+  .hero-copy {
+    padding-top: 76px;
+  }
+
+  .hero-copy p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    margin-top: 34px;
+  }
+
+  .desktop-downloads {
+    gap: 14px;
+  }
+
+  .primary-button {
+    min-height: 54px;
+    padding: 14px 28px;
+    font-size: 17px;
+  }
+
+  .hero-media {
+    padding-top: 10px;
+  }
+
+  .hero-visual {
+    border-radius: 36px;
+    transform: rotate(2.2deg);
+  }
+
+  .hero-visual img {
+    aspect-ratio: 5 / 6;
+  }
+
+  .hero-caption {
+    left: 34px;
+    bottom: 28px;
+  }
+
+  .hero-caption strong {
+    font-size: 30px;
   }
 
   .cards {

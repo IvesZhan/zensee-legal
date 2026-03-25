@@ -628,6 +628,78 @@ img {
     color: var(--primary);
     font-weight: 700;
   }
+
+  html[lang="zh-CN"] .hero-copy,
+  html[lang="zh-Hant"] .hero-copy {
+    max-width: 500px;
+  }
+
+  html[lang="zh-CN"] .hero-line,
+  html[lang="zh-Hant"] .hero-line {
+    margin-bottom: 26px;
+    line-height: 0.84;
+    letter-spacing: -0.06em;
+  }
+
+  html[lang="zh-CN"] .hero-line > span,
+  html[lang="zh-Hant"] .hero-line > span {
+    line-height: 0.84;
+  }
+
+  html[lang="zh-CN"] .hero-line .small,
+  html[lang="zh-Hant"] .hero-line .small {
+    font-size: clamp(56px, 5vw, 82px);
+    color: rgba(57, 45, 32, 0.46);
+    font-weight: 500;
+  }
+
+  html[lang="zh-CN"] .hero-line .medium,
+  html[lang="zh-Hant"] .hero-line .medium {
+    margin-left: clamp(6px, 0.8vw, 14px);
+    font-size: clamp(56px, 5vw, 82px);
+    color: rgba(57, 45, 32, 0.58);
+    font-weight: 500;
+  }
+
+  html[lang="zh-CN"] .hero-line .large,
+  html[lang="zh-Hant"] .hero-line .large {
+    margin-top: 10px;
+    font-size: clamp(82px, 7.1vw, 112px);
+    font-weight: 700;
+  }
+
+  html[lang="ja"] .hero-copy {
+    max-width: 560px;
+  }
+
+  html[lang="ja"] .hero-line {
+    margin-bottom: 24px;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+  }
+
+  html[lang="ja"] .hero-line > span {
+    line-height: 0.92;
+  }
+
+  html[lang="ja"] .hero-line .small {
+    font-size: clamp(42px, 4vw, 62px);
+    color: rgba(57, 45, 32, 0.48);
+    font-weight: 500;
+  }
+
+  html[lang="ja"] .hero-line .medium {
+    margin-left: clamp(8px, 0.9vw, 16px);
+    font-size: clamp(42px, 4vw, 62px);
+    color: rgba(57, 45, 32, 0.6);
+    font-weight: 500;
+  }
+
+  html[lang="ja"] .hero-line .large {
+    margin-top: 8px;
+    font-size: clamp(58px, 5.2vw, 82px);
+    font-weight: 700;
+  }
 }
 
 @media (min-width: 960px) {

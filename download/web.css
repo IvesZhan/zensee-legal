@@ -429,7 +429,7 @@ img {
 }
 
 .philosophy blockquote strong {
-  color: var(--primary);
+  color: rgba(57, 45, 32, 0.54);
   font-weight: 700;
 }
 
@@ -449,7 +449,7 @@ img {
 }
 
 .mobile-cta-button {
-  display: none;
+  display: none !important;
 }
 
 .cta-shell {
@@ -534,25 +534,26 @@ img {
 
 .phone-mockup {
   width: min(332px, 100%);
-  padding: 14px;
-  border-radius: 48px;
-  background: #2d2419;
-  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.24);
+  padding: 10px;
+  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  box-shadow: 0 28px 56px rgba(57, 45, 32, 0.16);
   transform: rotate(5deg);
 }
 
 .phone-screen {
   position: relative;
   overflow: hidden;
-  border-radius: 34px;
-  background: #f8f3eb;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .phone-screen img {
   width: 100%;
   aspect-ratio: 9 / 16;
   object-fit: contain;
-  background: #19140f;
+  background: transparent;
 }
 
 .phone-screen::after {
@@ -773,7 +774,7 @@ img {
   }
 
   .philosophy blockquote {
-    max-width: 1120px;
+    max-width: 100%;
     font-size: clamp(42px, 4.4vw, 72px);
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -788,7 +789,7 @@ img {
   }
 
   .philosophy .label {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.32em;
     color: rgba(57, 45, 32, 0.72);
@@ -1219,11 +1220,11 @@ img {
   }
 
   .desktop-cta-button {
-    display: none;
+    display: none !important;
   }
 
   .mobile-cta-button {
-    display: inline-flex;
+    display: inline-flex !important;
   }
 
   .cta-primary {

@@ -593,18 +593,21 @@ img {
 
 @media (min-width: 721px) {
   .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     max-width: 540px;
   }
 
   .hero-line {
-    margin-bottom: 24px;
-    line-height: 0.88;
+    margin-bottom: 28px;
+    line-height: 0.9;
   }
 
   .hero-line > span {
     display: block;
     white-space: nowrap;
-    line-height: 0.88;
+    line-height: 0.9;
   }
 
   .hero-line .small {
@@ -615,7 +618,6 @@ img {
   }
 
   .hero-line .medium {
-    margin-left: clamp(10px, 1vw, 18px);
     font-size: clamp(48px, 4.5vw, 70px);
     color: rgba(57, 45, 32, 0.6);
     font-style: normal;
@@ -623,40 +625,54 @@ img {
   }
 
   .hero-line .large {
-    margin-top: 8px;
+    margin-top: 10px;
     font-size: clamp(66px, 5.8vw, 92px);
     color: var(--primary);
     font-weight: 700;
   }
 
+  .hero-copy p {
+    max-width: 31ch;
+    font-size: 20px;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
+    justify-content: flex-start;
+  }
+
+  .desktop-downloads {
+    justify-content: flex-start;
+  }
+
   html[lang="zh-CN"] .hero-copy,
   html[lang="zh-Hant"] .hero-copy {
-    max-width: 500px;
+    max-width: 540px;
   }
 
   html[lang="zh-CN"] .hero-line,
   html[lang="zh-Hant"] .hero-line {
     margin-bottom: 26px;
-    line-height: 0.84;
-    letter-spacing: -0.06em;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
   }
 
   html[lang="zh-CN"] .hero-line > span,
   html[lang="zh-Hant"] .hero-line > span {
-    line-height: 0.84;
+    line-height: 0.88;
   }
 
   html[lang="zh-CN"] .hero-line .small,
   html[lang="zh-Hant"] .hero-line .small {
-    font-size: clamp(56px, 5vw, 82px);
+    font-size: clamp(54px, 4.8vw, 78px);
     color: rgba(57, 45, 32, 0.46);
     font-weight: 500;
   }
 
   html[lang="zh-CN"] .hero-line .medium,
   html[lang="zh-Hant"] .hero-line .medium {
-    margin-left: clamp(6px, 0.8vw, 14px);
-    font-size: clamp(56px, 5vw, 82px);
+    font-size: clamp(54px, 4.8vw, 78px);
     color: rgba(57, 45, 32, 0.58);
     font-weight: 500;
   }
@@ -664,8 +680,14 @@ img {
   html[lang="zh-CN"] .hero-line .large,
   html[lang="zh-Hant"] .hero-line .large {
     margin-top: 10px;
-    font-size: clamp(82px, 7.1vw, 112px);
+    font-size: clamp(78px, 6.6vw, 102px);
     font-weight: 700;
+  }
+
+  html[lang="zh-CN"] .hero-copy p,
+  html[lang="zh-Hant"] .hero-copy p {
+    max-width: 18ch;
+    line-height: 1.6;
   }
 
   html[lang="ja"] .hero-copy {
@@ -674,31 +696,35 @@ img {
 
   html[lang="ja"] .hero-line {
     margin-bottom: 24px;
-    line-height: 0.92;
+    line-height: 0.96;
     letter-spacing: -0.04em;
   }
 
   html[lang="ja"] .hero-line > span {
-    line-height: 0.92;
+    line-height: 0.96;
   }
 
   html[lang="ja"] .hero-line .small {
-    font-size: clamp(42px, 4vw, 62px);
+    font-size: clamp(40px, 3.8vw, 58px);
     color: rgba(57, 45, 32, 0.48);
     font-weight: 500;
   }
 
   html[lang="ja"] .hero-line .medium {
-    margin-left: clamp(8px, 0.9vw, 16px);
-    font-size: clamp(42px, 4vw, 62px);
+    font-size: clamp(40px, 3.8vw, 58px);
     color: rgba(57, 45, 32, 0.6);
     font-weight: 500;
   }
 
   html[lang="ja"] .hero-line .large {
     margin-top: 8px;
-    font-size: clamp(58px, 5.2vw, 82px);
+    font-size: clamp(54px, 4.8vw, 74px);
     font-weight: 700;
+  }
+
+  html[lang="ja"] .hero-copy p {
+    max-width: 24ch;
+    line-height: 1.68;
   }
 }
 
@@ -708,7 +734,9 @@ img {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+    grid-template-columns: minmax(0, 1fr) minmax(460px, 1fr);
+    gap: clamp(48px, 6vw, 96px);
+    align-items: center;
   }
 
   .cards {

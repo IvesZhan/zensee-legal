@@ -846,15 +846,16 @@ img {
     justify-content: center;
     height: 40px;
     padding: 0 16px;
-    border-radius: 14px;
+    border-radius: 999px;
     background: var(--brand-accent);
     color: #fff;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0;
     box-shadow:
-      0 14px 28px rgba(57, 45, 32, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      0 16px 30px rgba(57, 45, 32, 0.2),
+      0 6px 12px rgba(57, 45, 32, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
   .section {
@@ -940,7 +941,7 @@ img {
   }
 
   .mobile-download .primary-button {
-    width: min(100%, 348px);
+    width: 100%;
     min-height: 62px;
     margin: 0 auto;
     padding: 18px 28px;

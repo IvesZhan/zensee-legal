@@ -774,7 +774,7 @@ img {
   }
 
   .philosophy blockquote {
-    max-width: 100%;
+    max-width: 1240px;
     font-size: clamp(42px, 4.4vw, 72px);
     line-height: 1.1;
     letter-spacing: -0.03em;

@@ -25,6 +25,7 @@
 
   bindButton();
   setLoadingState();
+  mountInAppBrowserOverlay();
 
   if (!state.groupId) {
     renderError(copy.invalidGroup);
@@ -63,7 +64,9 @@
         openFallback: "如未安装 App，将跳转到下载页。",
         downloadButton: "下载 ZenSee",
         groupSuffix: "群组详情",
-        ownerLine: "群主：%@"
+        ownerLine: "群主：%@",
+        openBrowserHint: "请点击右上角",
+        openBrowserAction: "在默认浏览器打开"
       },
       "zh-hant": {
         loading: "正在載入群組詳情…",
@@ -79,7 +82,9 @@
         openFallback: "如未安裝 App，將跳轉到下載頁。",
         downloadButton: "下載 ZenSee",
         groupSuffix: "群組詳情",
-        ownerLine: "群主：%@"
+        ownerLine: "群主：%@",
+        openBrowserHint: "請點擊右上角",
+        openBrowserAction: "在預設瀏覽器打開"
       },
       "ja": {
         loading: "グループ詳細を読み込み中…",
@@ -95,7 +100,9 @@
         openFallback: "App が未インストールの場合はダウンロードページへ移動します。",
         downloadButton: "ZenSee をダウンロード",
         groupSuffix: "グループ詳細",
-        ownerLine: "グループ主：%@"
+        ownerLine: "グループ主：%@",
+        openBrowserHint: "右上のメニューをタップ",
+        openBrowserAction: "既定のブラウザで開く"
       },
       "en": {
         loading: "Loading group details…",
@@ -111,7 +118,9 @@
         openFallback: "If the app is not installed, you will be redirected to the download page.",
         downloadButton: "Download ZenSee",
         groupSuffix: "Group Details",
-        ownerLine: "Owner: %@"
+        ownerLine: "Owner: %@",
+        openBrowserHint: "Tap the top-right menu",
+        openBrowserAction: "Open in your default browser"
       }
     };
 
@@ -276,6 +285,35 @@
     });
   }
 
+  function mountInAppBrowserOverlay() {
+    if (!isRestrictedInAppBrowser()) {
+      return;
+    }
+
+    if (document.getElementById("in-app-browser-overlay")) {
+      return;
+    }
+
+    var overlay = document.createElement("div");
+    overlay.id = "in-app-browser-overlay";
+    overlay.className = "in-app-browser-overlay";
+    overlay.innerHTML = [
+      '<div class="in-app-browser-guide" role="dialog" aria-modal="true" aria-label="' + escapeHtml(copy.openBrowserAction) + '">',
+      '<div class="in-app-browser-arrow" aria-hidden="true">',
+      '<span class="in-app-browser-arrow-line"></span>',
+      '<span class="in-app-browser-arrow-head"></span>',
+      "</div>",
+      '<div class="in-app-browser-copy">',
+      "<strong>" + escapeHtml(copy.openBrowserHint) + "</strong>",
+      "<span>" + escapeHtml(copy.openBrowserAction) + "</span>",
+      "</div>",
+      "</div>"
+    ].join("");
+
+    document.body.appendChild(overlay);
+    document.body.classList.add("has-in-app-browser-overlay");
+  }
+
   function openApp(groupId) {
     var deepLink = "zensee://group/join?id=" + encodeURIComponent(groupId);
     var fallback = config.downloadUrl || (config.siteBaseUrl || "") + "/download/";
@@ -293,6 +331,22 @@
         window.location.href = fallback;
       }
     }, 900);
+  }
+
+  function isRestrictedInAppBrowser() {
+    var ua = String(navigator.userAgent || "").toLowerCase();
+    return [
+      "micromessenger",
+      "wxwork",
+      "dingtalk",
+      "lark",
+      "feishu",
+      "qq/",
+      "mobile qq",
+      "weibo"
+    ].some(function (keyword) {
+      return ua.indexOf(keyword) !== -1;
+    });
   }
 
   function trimmed(value) {

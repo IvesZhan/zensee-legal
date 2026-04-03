@@ -14,6 +14,7 @@
     title: document.getElementById("group-name"),
     description: document.getElementById("group-description"),
     owner: document.getElementById("group-owner"),
+    ownerLine: document.getElementById("group-owner-line"),
     membersSection: document.getElementById("members-section"),
     memberList: document.getElementById("member-list"),
     errorState: document.getElementById("error-state"),
@@ -56,13 +57,14 @@
         unknownOwner: "禅友",
         defaultDescription: "坚持打卡，共见成长",
         noMembers: "暂时还没有可展示的成员。",
-        invitationBadge: "ZenSee 群组邀请",
+        publicBadge: "公开群组",
         ownerRole: "群主",
         memberRole: "成员",
         joinButton: "加入群组",
         openFallback: "如未安装 App，将跳转到下载页。",
         downloadButton: "下载 ZenSee",
-        groupSuffix: "群组详情"
+        groupSuffix: "群组详情",
+        ownerLine: "群主：%@"
       },
       "zh-hant": {
         loading: "正在載入群組詳情…",
@@ -71,13 +73,14 @@
         unknownOwner: "禪友",
         defaultDescription: "堅持打卡，共見成長",
         noMembers: "暫時還沒有可展示的成員。",
-        invitationBadge: "ZenSee 群組邀請",
+        publicBadge: "公開群組",
         ownerRole: "群主",
         memberRole: "成員",
         joinButton: "加入群組",
         openFallback: "如未安裝 App，將跳轉到下載頁。",
         downloadButton: "下載 ZenSee",
-        groupSuffix: "群組詳情"
+        groupSuffix: "群組詳情",
+        ownerLine: "群主：%@"
       },
       "ja": {
         loading: "グループ詳細を読み込み中…",
@@ -86,13 +89,14 @@
         unknownOwner: "禅友",
         defaultDescription: "毎日続けて、ともに成長していきましょう。",
         noMembers: "表示できるメンバーがまだいません。",
-        invitationBadge: "ZenSee グループ招待",
+        publicBadge: "公開グループ",
         ownerRole: "グループ主",
         memberRole: "メンバー",
         joinButton: "グループに参加",
         openFallback: "App が未インストールの場合はダウンロードページへ移動します。",
         downloadButton: "ZenSee をダウンロード",
-        groupSuffix: "グループ詳細"
+        groupSuffix: "グループ詳細",
+        ownerLine: "グループ主：%@"
       },
       "en": {
         loading: "Loading group details…",
@@ -101,13 +105,14 @@
         unknownOwner: "Zen Friend",
         defaultDescription: "Keep showing up and grow together.",
         noMembers: "No members are available to display yet.",
-        invitationBadge: "ZenSee Group Invitation",
+        publicBadge: "Public Group",
         ownerRole: "Owner",
         memberRole: "Member",
         joinButton: "Join Group",
         openFallback: "If the app is not installed, you will be redirected to the download page.",
         downloadButton: "Download ZenSee",
-        groupSuffix: "Group Details"
+        groupSuffix: "Group Details",
+        ownerLine: "Owner: %@"
       }
     };
 
@@ -194,10 +199,13 @@
 
     document.title = snapshot.name + " · " + copy.groupSuffix;
 
-    elements.status.textContent = copy.invitationBadge;
+    elements.status.textContent = copy.publicBadge;
     elements.title.textContent = snapshot.name;
     elements.description.textContent = trimmed(snapshot.description) || copy.defaultDescription;
     elements.owner.textContent = snapshot.owner_name || copy.unknownOwner;
+    if (elements.ownerLine) {
+      elements.ownerLine.textContent = format(copy.ownerLine, snapshot.owner_name || copy.unknownOwner);
+    }
     elements.contentState.hidden = false;
     elements.membersSection.hidden = false;
     elements.errorState.hidden = true;
@@ -304,5 +312,9 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
+  }
+
+  function format(template, value) {
+    return String(template || "").replace("%@", String(value || ""));
   }
 }());

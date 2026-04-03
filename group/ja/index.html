@@ -48,18 +48,17 @@
       <section class="group-hero" id="content-state">
         <div class="hero-status" id="page-status">グループ詳細を読み込み中…</div>
         <h1 id="group-name">グループ詳細</h1>
-        <div class="owner-pill">
-          <span>グループ主</span>
-          <strong id="group-owner">禅友</strong>
-        </div>
+        <p class="owner-line" id="group-owner-line">グループ主：禅友</p>
         <div class="description-card">
           <p id="group-description">この招待カードに含まれる公開グループ情報を読み込んでいます。</p>
         </div>
       </section>
 
       <section class="members-section" id="members-section" hidden>
-        <h2>メンバー</h2>
-        <div class="member-list" id="member-list"></div>
+        <h2>グループメンバー</h2>
+        <div class="member-shell">
+          <div class="member-list" id="member-list"></div>
+        </div>
       </section>
 
       <section class="error-state" id="error-state" hidden>

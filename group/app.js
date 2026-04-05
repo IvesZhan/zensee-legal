@@ -25,7 +25,6 @@
 
   bindButton();
   setLoadingState();
-  mountInAppBrowserOverlay();
 
   if (!state.groupId) {
     renderError(copy.invalidGroup);
@@ -63,9 +62,7 @@
         joinButton: "加入群组",
         openingApp: "正在打开 ZenSee…",
         groupSuffix: "群组详情",
-        ownerLine: "群主：%@",
-        openBrowserHint: "请点击右上角",
-        openBrowserAction: "在默认浏览器打开"
+        ownerLine: "群主：%@"
       },
       "zh-hant": {
         loading: "正在載入群組詳情…",
@@ -80,9 +77,7 @@
         joinButton: "加入群組",
         openingApp: "正在打開 ZenSee…",
         groupSuffix: "群組詳情",
-        ownerLine: "群主：%@",
-        openBrowserHint: "請點擊右上角",
-        openBrowserAction: "在預設瀏覽器打開"
+        ownerLine: "群主：%@"
       },
       "ja": {
         loading: "グループ詳細を読み込み中…",
@@ -97,9 +92,7 @@
         joinButton: "グループに参加",
         openingApp: "ZenSee を開いています…",
         groupSuffix: "グループ詳細",
-        ownerLine: "グループ主：%@",
-        openBrowserHint: "右上のメニューをタップ",
-        openBrowserAction: "既定のブラウザで開く"
+        ownerLine: "グループ主：%@"
       },
       "en": {
         loading: "Loading group details…",
@@ -114,9 +107,7 @@
         joinButton: "Join Group",
         openingApp: "Opening ZenSee…",
         groupSuffix: "Group Details",
-        ownerLine: "Owner: %@",
-        openBrowserHint: "Tap the top-right menu",
-        openBrowserAction: "Open in your default browser"
+        ownerLine: "Owner: %@"
       }
     };
 
@@ -283,37 +274,6 @@
     });
   }
 
-  function mountInAppBrowserOverlay() {
-    if (!isRestrictedInAppBrowser()) {
-      return;
-    }
-
-    if (document.getElementById("in-app-browser-overlay")) {
-      return;
-    }
-
-    var overlay = document.createElement("div");
-    overlay.id = "in-app-browser-overlay";
-    overlay.className = "in-app-browser-overlay";
-    overlay.innerHTML = [
-      '<div class="in-app-browser-guide" role="dialog" aria-modal="true" aria-label="' + escapeHtml(copy.openBrowserAction) + '">',
-      '<div class="in-app-browser-arrow" aria-hidden="true">',
-      '<svg class="in-app-browser-arrow-svg" viewBox="0 0 120 96" fill="none" xmlns="http://www.w3.org/2000/svg">',
-      '<path d="M18 82C18 46 42 28 68 30C88 32 98 46 96 60C94 74 80 80 68 74C57 68 56 55 66 46C77 36 93 36 104 38L104 16" />',
-      '<path d="M90 28L104 14L118 28" />',
-      "</svg>",
-      "</div>",
-      '<div class="in-app-browser-copy">',
-      "<strong>" + escapeHtml(copy.openBrowserHint) + "</strong>",
-      "<span>" + escapeHtml(copy.openBrowserAction) + "</span>",
-      "</div>",
-      "</div>"
-    ].join("");
-
-    document.body.appendChild(overlay);
-    document.body.classList.add("has-in-app-browser-overlay");
-  }
-
   function openApp(groupId) {
     var universalLinkBase = String(config.appUniversalLinkBase || "https://iveszhan.github.io/zensee/").replace(/\?+$/, "");
     var deepLink = universalLinkBase + "?target=group-join&id=" + encodeURIComponent(groupId);
@@ -336,22 +296,6 @@
         elements.joinButton.textContent = copy.joinButton;
       }
     }, 900);
-  }
-
-  function isRestrictedInAppBrowser() {
-    var ua = String(navigator.userAgent || "").toLowerCase();
-    return [
-      "micromessenger",
-      "wxwork",
-      "dingtalk",
-      "lark",
-      "feishu",
-      "qq/",
-      "mobile qq",
-      "weibo"
-    ].some(function (keyword) {
-      return ua.indexOf(keyword) !== -1;
-    });
   }
 
   function trimmed(value) {

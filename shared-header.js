@@ -16,8 +16,10 @@
   var actionLabel = host.getAttribute("data-header-action-label") || "";
   var actionUrl = host.getAttribute("data-header-action-url") || supportUrl;
   var actionIsDownload = host.getAttribute("data-header-action-download") === "true";
-  var mobileLabel = host.getAttribute("data-header-mobile-label") || copy.download;
-  var mobileUrl = host.getAttribute("data-header-mobile-url") || supportUrl;
+  var mobileLabelAttr = host.getAttribute("data-header-mobile-label");
+  var mobileUrlAttr = host.getAttribute("data-header-mobile-url");
+  var mobileLabel = mobileLabelAttr !== null ? mobileLabelAttr : copy.download;
+  var mobileUrl = mobileUrlAttr !== null ? mobileUrlAttr : supportUrl;
   var mobileIsDownload = host.hasAttribute("data-header-mobile-download")
     ? host.getAttribute("data-header-mobile-download") === "true"
     : !host.hasAttribute("data-header-mobile-label");

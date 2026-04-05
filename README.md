@@ -28,6 +28,16 @@ Then upload the contents of this folder to the root of that repository.
 - `apple-app-site-association`
 - `.nojekyll`
 
+## Asset conventions
+
+Static images are managed under `assets/images/`:
+
+- `assets/images/brand/`: brand icon and favicon
+- `assets/images/screens/`: product screenshots used by homepage and download pages
+- `assets/images/editorial/`: decorative and atmosphere images used by marketing sections
+
+Keep new image files inside these folders instead of placing them in the project root or under individual page folders.
+
 ## Enable GitHub Pages
 
 In the target repository on GitHub:

@@ -315,7 +315,8 @@
   }
 
   function openApp(groupId) {
-    var deepLink = "zensee://group/join?id=" + encodeURIComponent(groupId);
+    var universalLinkBase = String(config.appUniversalLinkBase || "https://iveszhan.github.io/zensee/").replace(/\?+$/, "");
+    var deepLink = universalLinkBase + "?target=group-join&id=" + encodeURIComponent(groupId);
     var didHide = false;
     var visibilityHandler = function () {
       didHide = document.hidden;

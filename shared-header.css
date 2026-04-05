@@ -36,7 +36,7 @@
   width: 46px;
   height: 46px;
   border-radius: 16px;
-  background: var(--brand-accent);
+  background: var(--brand-accent, #8e8071);
   display: grid;
   place-items: center;
   box-shadow: 0 14px 28px rgba(57, 45, 32, 0.18);
@@ -54,13 +54,13 @@
   font-family: var(--font-display);
   font-size: 24px;
   line-height: 1;
-  color: var(--primary);
+  color: var(--primary, #392d20);
 }
 
 .brand-text span {
   display: block;
   margin-top: 2px;
-  color: var(--muted);
+  color: var(--muted, #6f6357);
   font-size: 12px;
 }
 
@@ -69,7 +69,7 @@
   align-items: center;
   gap: 28px;
   font-family: var(--font-display);
-  color: var(--secondary);
+  color: var(--secondary, #6d5b47);
 }
 
 .nav-cluster {
@@ -86,7 +86,7 @@
   min-height: 46px;
   padding: 0 22px;
   border-radius: 999px;
-  background: var(--brand-accent);
+  background: var(--brand-accent, #8e8071);
   color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -125,7 +125,7 @@
     min-height: 50px;
     padding: 0 22px;
     border-radius: 999px;
-    background: var(--brand-accent);
+    background: var(--brand-accent, #8e8071);
     color: #fff;
     font-size: 15px;
     font-weight: 700;
@@ -139,7 +139,7 @@
 
 @media (max-width: 720px) {
   .nav {
-    background: var(--bg);
+    background: var(--bg, #fef9f1);
     padding-top: env(safe-area-inset-top);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;

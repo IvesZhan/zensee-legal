@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./shared-header.css" />
   <link rel="stylesheet" href="./official-site.css" />
   <script>
     (() => {
@@ -54,28 +55,20 @@
 </head>
 <body>
   <div class="site-shell">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="禅·见首页">
-          <span class="brand-mark">
-            <img src="./MeditationIcon.png" alt="" />
-          </span>
-          <span class="brand-copy">
-            <strong>禅·见</strong>
-            <span>ZenSee Official Site</span>
-          </span>
-        </a>
-
-        <nav class="site-nav" aria-label="站点导航">
-          <a href="#overview">产品概览</a>
-          <a href="#modules">功能模块</a>
-          <a href="#download">下载方式</a>
-          <a href="#support">支持与法务</a>
-        </nav>
-
-        <a class="header-action" href="./support/">联系支持</a>
-      </div>
-    </header>
+    <div
+      id="shared-header"
+      data-header-locale="zh-cn"
+      data-header-home-url="./"
+      data-header-support-url="./support/"
+      data-header-icon-src="./MeditationIcon.png"
+      data-header-links="#overview::产品概览||#modules::功能模块||#download::下载方式||#support::支持与法务"
+      data-header-action-label="联系支持"
+      data-header-action-url="./support/"
+      data-header-mobile-label="联系支持"
+      data-header-mobile-url="./support/"
+      data-header-mobile-download="false"
+      data-header-subtitle="ZenSee Official Site"
+    ></div>
 
     <main>
       <section class="hero container" id="top">
@@ -404,5 +397,6 @@
       </div>
     </footer>
   </div>
+  <script src="./shared-header.js"></script>
 </body>
 </html>

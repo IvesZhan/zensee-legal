@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>禪·見 支援</title>
+  <link rel="stylesheet" href="../../shared-header.css" />
   <style>
     :root {
       --bg: #f5f2ed;
@@ -12,6 +13,12 @@
       --subtle: #6f6357;
       --line: #e7e1d9;
       --accent: #8e8071;
+      --brand-accent: #8e8071;
+      --primary: #2f2923;
+      --secondary: #6f6357;
+      --muted: #6f6357;
+      --container: min(100% - 32px, 860px);
+      --font-display: "Songti TC", "PMingLiU", serif;
     }
     * { box-sizing: border-box; }
     body {
@@ -61,6 +68,15 @@
   </style>
 </head>
 <body>
+  <div
+    id="shared-header"
+    data-header-locale="zh-hant"
+    data-header-home-url="../../"
+    data-header-brand-url="../../"
+    data-header-support-url="./"
+    data-header-icon-src="../../MeditationIcon.png"
+    data-header-links="../../download/zh-hant/::下載方式||../../privacy-policy/zh-hant/::隱私政策||../../terms-of-service/zh-hant/::服務條款"
+  ></div>
   <main class="wrap">
     <article class="card">
       <h1>禪·見 支援</h1>
@@ -92,5 +108,6 @@
       </div>
     </article>
   </main>
+  <script src="../../shared-header.js"></script>
 </body>
 </html>

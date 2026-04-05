@@ -7,30 +7,39 @@
   var locale = normalizeLocale(host.getAttribute("data-header-locale") || document.documentElement.lang);
   var homeUrl = host.getAttribute("data-header-home-url") || "./";
   var supportUrl = host.getAttribute("data-header-support-url") || homeUrl;
+  var brandUrl = host.getAttribute("data-header-brand-url") || homeUrl;
   var iconSrc = host.getAttribute("data-header-icon-src") || "";
+  var subtitle = host.getAttribute("data-header-subtitle") || "";
   var comingSoon = host.getAttribute("data-header-coming-soon") || "";
   var copy = localeCopy(locale);
+  var links = parseLinks(host.getAttribute("data-header-links"));
+  var actionLabel = host.getAttribute("data-header-action-label") || "";
+  var actionUrl = host.getAttribute("data-header-action-url") || supportUrl;
+  var actionIsDownload = host.getAttribute("data-header-action-download") === "true";
+  var mobileLabel = host.getAttribute("data-header-mobile-label") || copy.download;
+  var mobileUrl = host.getAttribute("data-header-mobile-url") || supportUrl;
+  var mobileIsDownload = host.hasAttribute("data-header-mobile-download")
+    ? host.getAttribute("data-header-mobile-download") === "true"
+    : !host.hasAttribute("data-header-mobile-label");
+  var navLinks = links !== null ? links : defaultLinks(copy, homeUrl);
 
   host.outerHTML = [
     '<nav class="nav">',
     '<div class="nav-inner">',
-    '<div class="brand-lockup">',
+    '<a class="brand-lockup" href="' + escapeAttribute(brandUrl) + '">',
     '<div class="brand-icon">',
     '<img src="' + escapeAttribute(iconSrc) + '" alt="' + escapeAttribute(copy.iconAlt) + '" />',
     "</div>",
     '<div class="brand-text">',
     "<strong>" + escapeHtml(copy.brand) + "</strong>",
-    "<span>" + escapeHtml(copy.subtitle) + "</span>",
+    "<span>" + escapeHtml(subtitle || copy.subtitle) + "</span>",
     "</div>",
+    "</a>",
+    '<div class="nav-cluster">',
+    '<div class="nav-links">' + renderLinks(navLinks) + "</div>",
+    renderAction("nav-action", actionLabel, actionUrl, actionIsDownload, comingSoon),
     "</div>",
-    '<div class="nav-links">',
-    '<a href="' + escapeAttribute(link(homeUrl, "experience")) + '">' + escapeHtml(copy.experience) + "</a>",
-    '<a href="' + escapeAttribute(link(homeUrl, "features")) + '">' + escapeHtml(copy.features) + "</a>",
-    '<a href="' + escapeAttribute(link(homeUrl, "philosophy")) + '">' + escapeHtml(copy.philosophy) + "</a>",
-    "</div>",
-    '<a class="mobile-nav-link" data-download-button' +
-      (comingSoon ? ' data-coming-soon="' + escapeAttribute(comingSoon) + '"' : "") +
-      ' href="' + escapeAttribute(supportUrl) + '">' + escapeHtml(copy.download) + "</a>",
+    renderAction("mobile-nav-link", mobileLabel, mobileUrl, mobileIsDownload, comingSoon),
     "</div>",
     "</nav>"
   ].join("");
@@ -90,6 +99,56 @@
     };
 
     return table[currentLocale] || table["zh-cn"];
+  }
+
+  function parseLinks(raw) {
+    if (raw === null) {
+      return null;
+    }
+
+    return String(raw)
+      .split("||")
+      .map(function (item) {
+        var value = String(item || "").trim();
+        if (!value) {
+          return null;
+        }
+
+        var parts = value.split("::");
+        var href = String(parts.shift() || "").trim();
+        var label = String(parts.join("::") || "").trim();
+        if (!href || !label) {
+          return null;
+        }
+
+        return { href: href, label: label };
+      })
+      .filter(Boolean);
+  }
+
+  function defaultLinks(copyTable, base) {
+    return [
+      { href: link(base, "experience"), label: copyTable.experience },
+      { href: link(base, "features"), label: copyTable.features },
+      { href: link(base, "philosophy"), label: copyTable.philosophy }
+    ];
+  }
+
+  function renderLinks(items) {
+    return items.map(function (item) {
+      return '<a href="' + escapeAttribute(item.href) + '">' + escapeHtml(item.label) + "</a>";
+    }).join("");
+  }
+
+  function renderAction(className, label, href, isDownload, comingSoonLabel) {
+    if (!label || !href) {
+      return "";
+    }
+
+    return '<a class="' + escapeAttribute(className) + '"' +
+      (isDownload ? ' data-download-button' : "") +
+      (isDownload && comingSoonLabel ? ' data-coming-soon="' + escapeAttribute(comingSoonLabel) + '"' : "") +
+      ' href="' + escapeAttribute(href) + '">' + escapeHtml(label) + "</a>";
   }
 
   function link(base, hash) {

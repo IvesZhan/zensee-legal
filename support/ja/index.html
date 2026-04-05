@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>禅·見 サポート</title>
+  <link rel="stylesheet" href="../../shared-header.css" />
   <style>
     :root {
       --bg: #f5f2ed;
@@ -12,6 +13,12 @@
       --subtle: #6f6357;
       --line: #e7e1d9;
       --accent: #8e8071;
+      --brand-accent: #8e8071;
+      --primary: #2f2923;
+      --secondary: #6f6357;
+      --muted: #6f6357;
+      --container: min(100% - 32px, 860px);
+      --font-display: "Hiragino Mincho ProN", "Yu Mincho", serif;
     }
     * { box-sizing: border-box; }
     body {
@@ -61,6 +68,15 @@
   </style>
 </head>
 <body>
+  <div
+    id="shared-header"
+    data-header-locale="ja"
+    data-header-home-url="../../"
+    data-header-brand-url="../../"
+    data-header-support-url="./"
+    data-header-icon-src="../../MeditationIcon.png"
+    data-header-links="../../download/ja/::ダウンロード||../../privacy-policy/ja/::プライバシー||../../terms-of-service/ja/::利用規約"
+  ></div>
   <main class="wrap">
     <article class="card">
       <h1>禅·見 サポート</h1>
@@ -92,5 +108,6 @@
       </div>
     </article>
   </main>
+  <script src="../../shared-header.js"></script>
 </body>
 </html>

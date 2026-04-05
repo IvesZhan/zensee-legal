@@ -12,15 +12,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared-header.css" />
   <link rel="stylesheet" href="../legal-page.css" />
 </head>
 <body>
+  <div
+    id="shared-header"
+    data-header-locale="zh-cn"
+    data-header-home-url="../"
+    data-header-brand-url="../"
+    data-header-support-url="./"
+    data-header-icon-src="../MeditationIcon.png"
+    data-header-links="../download/::下载方式||../privacy-policy/::隐私政策||../terms-of-service/::用户协议"
+  ></div>
   <main class="legal-shell">
-    <div class="legal-topbar">
-      <a href="../">返回官网首页</a>
-      <span>ZenSee 官方支持入口</span>
-    </div>
-
     <article class="legal-card">
       <div class="legal-badge">Support</div>
       <h1>禅·见 ZenSee 支持</h1>
@@ -80,5 +85,6 @@
       </div>
     </article>
   </main>
+  <script src="../shared-header.js"></script>
 </body>
 </html>

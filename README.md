@@ -23,6 +23,9 @@ Then upload the contents of this folder to the root of that repository.
 - `group/en/index.html`
 - `group/zh-hant/index.html`
 - `group/ja/index.html`
+- `wechat-sdk/index.html`
+- `.well-known/apple-app-site-association`
+- `apple-app-site-association`
 - `.nojekyll`
 
 ## Enable GitHub Pages
@@ -73,3 +76,23 @@ If the repository is a user site repo such as `<github-username>.github.io`:
 - The pages use relative links, so both repository URL styles above will work.
 - The public group page depends on shared Supabase RPC definitions maintained in `/Users/ives/Desktop/Program/ZenSee/Supabase/sql/group_public_share_hotfix.sql`.
 - After renaming the GitHub repository from `zensee-legal` to `zensee-web`, update the Git remote URL if you want local pushes to use the new repository name directly.
+
+## Universal Links
+
+GitHub Pages can be used for Apple Universal Links, but the AASA file must be reachable from the domain root:
+
+- `https://<domain>/.well-known/apple-app-site-association`
+- or `https://<domain>/apple-app-site-association`
+
+This means:
+
+- the current project-site URL style `https://<username>.github.io/zensee-web/...` cannot host the AASA file by itself
+- you must either publish these files from the user-site root repo `https://<username>.github.io/...`
+- or bind a custom domain directly to this site so the repository is served from the domain root
+
+The AASA files in this folder are prepared for the current iOS app:
+
+- Team ID: `L7U6Z557S6`
+- Bundle ID: `com.yuzhan.zenseeapp`
+- shared group path: `/zensee-web/group/*`
+- WeChat SDK callback path: `/wechat-sdk/*`

@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "L7U6Z557S6.com.yuzhan.zenseeapp",
+        "paths": [
+          "/zensee-web/group/*",
+          "/wechat-sdk/*"
+        ]
+      }
+    ]
+  }
+}

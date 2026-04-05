@@ -21,6 +21,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./official-site.css" />
+  <script>
+    (() => {
+      const isSmallScreen = window.matchMedia("(max-width: 760px)").matches;
+      const navigationEntry = performance.getEntriesByType
+        ? performance.getEntriesByType("navigation")[0]
+        : null;
+      const shouldResetScroll =
+        isSmallScreen &&
+        !window.location.hash &&
+        (!navigationEntry || navigationEntry.type === "navigate");
+
+      if (!shouldResetScroll) {
+        return;
+      }
+
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+
+      const resetToTop = () => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+          });
+        });
+      };
+
+      window.addEventListener("pageshow", resetToTop, { once: true });
+    })();
+  </script>
 </head>
 <body>
   <div class="site-shell">
@@ -71,7 +101,13 @@
 
         <div class="hero-visual">
           <div class="device-shell hero-device">
-            <img src="./IMG_2399.PNG" alt="禅·见首页界面截图" />
+            <img
+              src="./IMG_2399.PNG"
+              alt="禅·见首页界面截图"
+              width="1206"
+              height="2622"
+              fetchpriority="high"
+            />
           </div>
         </div>
       </section>
@@ -148,7 +184,14 @@
             </div>
             <div class="story-media">
               <div class="device-shell">
-                <img src="./IMG_2399.PNG" alt="禅·见首页界面截图，展示练习入口和主要内容" />
+                <img
+                  src="./IMG_2399.PNG"
+                  alt="禅·见首页界面截图，展示练习入口和主要内容"
+                  width="1206"
+                  height="2622"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </article>
@@ -169,10 +212,24 @@
             </div>
             <div class="story-media split-media">
               <div class="ambient-card">
-                <img src="./download/assets/feature-ocean.jpg" alt="表达长期回看和平静感受的海面视觉图" />
+                <img
+                  src="./download/assets/feature-ocean.jpg"
+                  alt="表达长期回看和平静感受的海面视觉图"
+                  width="512"
+                  height="512"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="device-shell compact-device">
-                <img src="./IMG_2400.PNG" alt="禅·见统计页界面截图，展示回看与趋势数据" />
+                <img
+                  src="./IMG_2400.PNG"
+                  alt="禅·见统计页界面截图，展示回看与趋势数据"
+                  width="1206"
+                  height="2622"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </article>
@@ -193,7 +250,14 @@
             </div>
             <div class="story-media layered-media">
               <div class="ambient-card">
-                <img src="./download/assets/hero-window.jpg" alt="安静空间视觉图，表达共修与留白氛围" />
+                <img
+                  src="./download/assets/hero-window.jpg"
+                  alt="安静空间视觉图，表达共修与留白氛围"
+                  width="512"
+                  height="512"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="media-note">
                 <strong>练习不只发生在独处时</strong>

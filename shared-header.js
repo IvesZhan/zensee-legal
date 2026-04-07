@@ -1,4 +1,9 @@
 (function () {
+  var defaultDownloadLinks = {
+    ios: "https://apps.apple.com/app/6760809128",
+    android: "https://raw.githubusercontent.com/IvesZhan/zensee-android/main/downloads/latest/ZenSee-android-latest.apk",
+    fallback: "https://iveszhan.github.io/zensee-web/download/"
+  };
   var host = document.getElementById("shared-header");
   if (!host) {
     return;
@@ -45,6 +50,8 @@
     "</div>",
     "</nav>"
   ].join("");
+
+  attachDownloadLinks();
 
   function normalizeLocale(value) {
     var lang = String(value || "").toLowerCase();
@@ -151,6 +158,44 @@
       (isDownload ? ' data-download-button' : "") +
       (isDownload && comingSoonLabel ? ' data-coming-soon="' + escapeAttribute(comingSoonLabel) + '"' : "") +
       ' href="' + escapeAttribute(href) + '">' + escapeHtml(label) + "</a>";
+  }
+
+  function attachDownloadLinks() {
+    var buttons = document.querySelectorAll("[data-download-button]");
+    if (!buttons.length) {
+      return;
+    }
+
+    var links = window.ZENSEE_DOWNLOAD_LINKS || {};
+    var fallback = isConfigured(links.fallback) ? links.fallback : defaultDownloadLinks.fallback;
+    var iosLink = isConfigured(links.ios) ? links.ios : defaultDownloadLinks.ios;
+    var androidLink = isConfigured(links.android) ? links.android : defaultDownloadLinks.android;
+    var platform = detectPlatform();
+    var resolved = platform === "ios" ? iosLink : (platform === "android" ? androidLink : fallback);
+
+    for (var i = 0; i < buttons.length; i += 1) {
+      var button = buttons[i];
+      button.href = resolved;
+    }
+  }
+
+  function detectPlatform() {
+    var ua = navigator.userAgent || "";
+    var isAndroid = /Android/i.test(ua);
+    var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    if (isIOS) {
+      return "ios";
+    }
+    if (isAndroid) {
+      return "android";
+    }
+    return "fallback";
+  }
+
+  function isConfigured(url) {
+    return typeof url === "string" && /^https?:\/\//.test(url);
   }
 
   function link(base, hash) {

@@ -1,7 +1,8 @@
 (function () {
   var defaultDownloadLinks = {
     ios: "https://apps.apple.com/app/6760809128",
-    android: "https://raw.githubusercontent.com/IvesZhan/zensee-android/main/downloads/latest/ZenSee-android-latest.apk",
+    androidZhCn: "https://www.pgyer.com/zensee-android",
+    androidGlobal: "https://raw.githubusercontent.com/IvesZhan/zensee-android/main/downloads/latest/ZenSee-android-latest.apk",
     fallback: "https://iveszhan.github.io/zensee-web/download/"
   };
   var host = document.getElementById("shared-header");
@@ -56,6 +57,13 @@
   function normalizeLocale(value) {
     var lang = String(value || "").toLowerCase();
     if (lang.indexOf("zh-hant") === 0) {
+      return "zh-hant";
+    }
+    if (
+      lang.indexOf("zh-tw") === 0 ||
+      lang.indexOf("zh-hk") === 0 ||
+      lang.indexOf("zh-mo") === 0
+    ) {
       return "zh-hant";
     }
     if (lang.indexOf("ja") === 0) {
@@ -169,14 +177,35 @@
     var links = window.ZENSEE_DOWNLOAD_LINKS || {};
     var fallback = isConfigured(links.fallback) ? links.fallback : defaultDownloadLinks.fallback;
     var iosLink = isConfigured(links.ios) ? links.ios : defaultDownloadLinks.ios;
-    var androidLink = isConfigured(links.android) ? links.android : defaultDownloadLinks.android;
+    var androidLink = resolveAndroidLink(locale, links);
     var platform = detectPlatform();
     var resolved = platform === "ios" ? iosLink : (platform === "android" ? androidLink : fallback);
 
     for (var i = 0; i < buttons.length; i += 1) {
       var button = buttons[i];
+      var target = button.getAttribute("data-platform");
+
+      if (target === "ios") {
+        button.href = iosLink;
+        continue;
+      }
+
+      if (target === "android") {
+        button.href = androidLink;
+        continue;
+      }
+
       button.href = resolved;
     }
+  }
+
+  function resolveAndroidLink(currentLocale, links) {
+    var zhCnLink = isConfigured(links.androidZhCn) ? links.androidZhCn : defaultDownloadLinks.androidZhCn;
+    var globalLink = isConfigured(links.androidGlobal)
+      ? links.androidGlobal
+      : (isConfigured(links.android) ? links.android : defaultDownloadLinks.androidGlobal);
+
+    return currentLocale === "zh-cn" ? zhCnLink : globalLink;
   }
 
   function detectPlatform() {

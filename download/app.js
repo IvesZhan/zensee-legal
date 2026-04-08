@@ -6,6 +6,36 @@
     return typeof url === "string" && /^https?:\/\//.test(url) && !placeholderPattern.test(url);
   }
 
+  function normalizeLocale(value) {
+    var lang = String(value || "").toLowerCase();
+    if (lang.indexOf("zh-hant") === 0) {
+      return "zh-hant";
+    }
+    if (
+      lang.indexOf("zh-tw") === 0 ||
+      lang.indexOf("zh-hk") === 0 ||
+      lang.indexOf("zh-mo") === 0
+    ) {
+      return "zh-hant";
+    }
+    if (lang.indexOf("ja") === 0) {
+      return "ja";
+    }
+    if (lang.indexOf("en") === 0) {
+      return "en";
+    }
+    return "zh-cn";
+  }
+
+  function resolveAndroidLink(currentLocale, currentLinks, fallbackLink) {
+    var zhCnLink = isConfigured(currentLinks.androidZhCn) ? currentLinks.androidZhCn : fallbackLink;
+    var globalLink = isConfigured(currentLinks.androidGlobal)
+      ? currentLinks.androidGlobal
+      : (isConfigured(currentLinks.android) ? currentLinks.android : fallbackLink);
+
+    return currentLocale === "zh-cn" ? zhCnLink : globalLink;
+  }
+
   function detectPlatform() {
     var ua = navigator.userAgent || "";
     var isAndroid = /Android/i.test(ua);
@@ -27,8 +57,9 @@
   var fallback = isConfigured(links.fallback) ? links.fallback :
     (isConfigured(pageFallback) ? pageFallback : "https://iveszhan.github.io/zensee-web/support/");
   var iosLink = isConfigured(links.ios) ? links.ios : fallback;
-  var androidReady = isConfigured(links.android);
-  var androidLink = androidReady ? links.android : fallback;
+  var locale = normalizeLocale(document.documentElement.lang || navigator.language);
+  var androidLink = resolveAndroidLink(locale, links, fallback);
+  var androidReady = isConfigured(androidLink);
   var platform = detectPlatform();
   var resolved = platform === "ios" ? iosLink : (platform === "android" ? androidLink : fallback);
 
